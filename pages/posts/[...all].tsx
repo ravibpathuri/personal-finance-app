@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-const PostsPage: NextPage = () => {
-  const { query } = useRouter();
-  console.log(query);
+const AllPostsPage: NextPage = () => {
+  const { locale, query } = useRouter();
+  console.log(locale, query);
   return <div>sdf</div>;
 };
 
-export default PostsPage;
+export default AllPostsPage;

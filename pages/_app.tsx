@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+import { appWithTranslation } from "next-i18next";
+
 import { reactPlugin } from "../AppInsights";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,4 +16,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
