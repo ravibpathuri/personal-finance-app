@@ -1,11 +1,9 @@
-<<<<<<< Updated upstream
 import { Box, Heading, Input, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 //import styles from "../styles/Home.module.css";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import MySlider from "../components/MySlider";
-import StepperInput from "../components/StepperInput";
-import LumpsumTab from "../components/LumpsumTab";
+import MySlider from "./MySlider";
+import LumpsumTab from "./LumpsumTab";
 
 interface InterestRateCalculatorProps {}
 
@@ -39,15 +37,3 @@ const InterestRateCaluclator: React.FunctionComponent<
 };
 
 export default InterestRateCaluclator;
-=======
-import { InterestRateCaluclator } from "../components/irc";
-import NavBar from "../components/NavBar";
-
-const RateCalc = () => (
-  <>
-    <InterestRateCaluclator />
-  </>
-);
-
-export default RateCalc;
->>>>>>> Stashed changes
