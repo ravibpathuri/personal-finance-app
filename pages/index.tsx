@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import * as formulajs from "@formulajs/formulajs"; // import entire package
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
-import IntrestRateCaluclator from "./IRC/IntrestRateCalculator";
+import IntrestRateCaluclator from "./interest-calculator";
 import NavBar from "../components/NavBar";
 
 const Home: NextPage = () => {
@@ -17,6 +17,7 @@ const Home: NextPage = () => {
       </Head>
       <NavBar />
       <IntrestRateCaluclator />
+      <DarkModeSwitch />
       <main className={styles.main}>
         {/* <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>

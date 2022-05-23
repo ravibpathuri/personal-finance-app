@@ -24,8 +24,6 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-import logo from "../assets/predi_logo.jfif";
-
 interface NavBarProps {}
 
 const NavBar: React.FunctionComponent<NavBarProps> = () => {
@@ -277,21 +275,11 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Numeric Calculater",
-    // children: [
-    //   {
-    //     label: "Explore Design Work",
-    //     subLabel: "Trending Design to inspire you",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "New & Noteworthy",
-    //     subLabel: "Up-and-coming Designers",
-    //     href: "#",
-    //   },
-    // ],
+    href: "/numeric-calculator",
   },
   {
-    label: "Intrest Rate Calculator",
+    label: "Interest Rate Calculator",
+    href: "/interest-calculator",
     // children: [
     //   {
     //     label: "Job Board",
@@ -307,12 +295,8 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Future Value Caluclator",
-    href: "#",
+    href: "/future-value-calculator",
   },
-  //   {
-  //     label: "Hire Designers",
-  //     href: "#",
-  //   },
 ];
 
 export default NavBar;
