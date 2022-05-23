@@ -19,7 +19,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/numeric-calculator.js"
+    "pages/numeric-calculator.tsx"
   ],
   "exclude": ["node_modules"]
 }

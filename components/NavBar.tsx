@@ -25,11 +25,8 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-<<<<<<< Updated upstream
-=======
 import logo from "../assets/download.png";
 
->>>>>>> Stashed changes
 interface NavBarProps {}
 
 const NavBar: React.FunctionComponent<NavBarProps> = () => {
@@ -284,10 +281,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Interest Rate Calculator",
-<<<<<<< Updated upstream
     href: "/interest-calculator",
-=======
->>>>>>> Stashed changes
     // children: [
     //   {
     //     label: "Job Board",
