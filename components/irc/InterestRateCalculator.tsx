@@ -1,8 +1,6 @@
-import { Box, Heading, Input, Stack, Text } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import React from "react";
-//import styles from "../styles/Home.module.css";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import MySlider from "./MySlider";
 import LumpsumTab from "./LumpsumTab";
 
 interface InterestRateCalculatorProps {}
