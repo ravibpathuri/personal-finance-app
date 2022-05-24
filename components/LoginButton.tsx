@@ -10,7 +10,7 @@ export default function Component() {
         <br />
         {session?.user?.image}
         <br />
-        <img src={session?.user?.image} alt="" />
+        {session?.user?.image && <img src={session?.user?.image} alt="" />}
         <HStack>
           <Button colorScheme="red" onClick={() => signOut()}>
             Sign out
