@@ -1,6 +1,5 @@
 import { Button, Grid, GridItem, Input, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import MySlider from "./MySlider";
 import StepperInput from "./StepperInput";
 import { useFormik, Field } from "formik";
 import * as yup from "yup";
@@ -51,11 +50,9 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
       />
 
       <StepperInput
+        id="month"
         min={0}
         max={120}
-        value1={0}
-        value2={60}
-        value3={120}
         label="Number of Months"
         value={25}
         onChange={(value: any) => {
@@ -64,37 +61,27 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
         }}
         sliderIcon={FaAirbnb}
         sliderIconSize={5}
-        inputMin={0} //sets min value that a slider & input can have
-        inputMax={120} //sets min value that a slider & input can have
       />
       {/* <MySlider /> */}
       <StepperInput
+        id="amout"
         min={0}
         max={1000000}
-        value1="0 K"
-        value2="500K"
-        value3="1000K"
         label="Amount Invested"
         value={25}
         sliderIcon={FaMoneyBill}
         sliderIconSize={5}
-        inputMin={0} //sets min value that a slider & input can have
-        inputMax={1000000} //sets min value that a slider & input can have
         step={5000}
         symbol="[₹]"
       />
       <StepperInput
+        id="profit"
         min={0}
         max={100}
-        value1={0}
-        value2={50}
-        value3={100}
         label="Estimated Profit"
         value={25}
         sliderIconSize={5}
         sliderIcon={FaChartLine}
-        inputMin={0} //sets min value that a slider & input can have
-        inputMax={100} //sets min value that a slider & input can have
         symbol="[%]"
       />
       <div style={{ marginTop: 50 }}>
