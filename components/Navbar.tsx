@@ -92,7 +92,7 @@ const NavBar: React.FunctionComponent<NavBarProps> = () => {
             Sign In
           </Button>
           <Button
-            display={{ base: "none", md: "inline-flex" }}
+            display={{ base: "none", md: "inline-flex", sm: "flow" }}
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
