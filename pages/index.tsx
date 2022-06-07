@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import p1 from "../public/static/img1.jpg";
 
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import MyCard from "../components/MyCard";
@@ -21,12 +23,14 @@ const Home: NextPage = () => {
 
         <Stack direction={["column", "row"]} spacing="24px">
           <Box>
+            {" "}
             <MyCard
               brand=""
               discription="Numeric Calculator"
               color="#5e5948"
-              image="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
-              link=""
+              image="https://media.istockphoto.com/photos/calculator-on-yellow-background-calculation-in-business-finance-or-picture-id1320740500?s=612x612"
+              link="/numeric-calculator"
+              backgroundImage="https://media.istockphoto.com/photos/calculator-on-yellow-background-calculation-in-business-finance-or-picture-id1320740500?s=612x612"
             />
           </Box>
 
@@ -35,7 +39,9 @@ const Home: NextPage = () => {
               brand=""
               color="#5e5948"
               discription="Interest Rate Calculator"
-              image="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+              image="https://media.istockphoto.com/photos/wooden-blocks-with-percentage-sign-and-arrow-up-financial-growth-picture-id1316707586"
+              link="/interest-calculator/rate"
+              backgroundImage="https://media.istockphoto.com/photos/wooden-blocks-with-percentage-sign-and-arrow-up-financial-growth-picture-id1316707586"
             />
           </Box>
           <Box>
@@ -44,6 +50,8 @@ const Home: NextPage = () => {
               discription="Future Value Calculator"
               image="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               color="#5e5948"
+              link="/interest-calculator/future-value"
+              backgroundImage="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
             />
           </Box>
         </Stack>

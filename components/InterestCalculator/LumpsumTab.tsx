@@ -10,6 +10,9 @@ interface LumpsumTabProps {}
 
 const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
   const [value, setValue] = React.useState("");
+  const [sliderValue, setSliderValue] = React.useState(0);
+  const handleChange = (value: any) => setValue(value);
+  const handleSliderChange = (sliderValue: any) => setSliderValue(sliderValue);
   const validate = yup.object().shape({
     years: yup.number().required(),
     months: yup.number().required().positive().integer(),
@@ -41,13 +44,14 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
         <StepperInput
           id="year"
           min={0}
-          max={100}
+          max={60}
           label="Number of Years"
           value={10}
           onChange={(value: any) => {
             setValue(value);
             console.log(value);
           }}
+          // onChange={handleSliderChange}
           //onChange={onchange}
           isDisabled={false} // number input will be disabled
           hideSlider={false}
@@ -60,9 +64,10 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
         <StepperInput
           id="month"
           min={0}
-          max={120}
+          max={720}
           label="Number of Months"
           value={25}
+          // onChange={handleSliderChange}
           onChange={(value: any) => {
             setValue(value);
             console.log(value);
@@ -85,12 +90,12 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
         <StepperInput
           id="profit"
           min={0}
-          max={100}
+          max={1000000}
           label="Estimated Profit"
           value={25}
           sliderIconSize={5}
           sliderIcon={FaChartLine}
-          symbol="[%]"
+          //symbol="[%]"
         />
         <div style={{ marginTop: 50 }}>
           <Grid templateColumns="repeat(2, 1fr)" gap={4}>
@@ -108,7 +113,7 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
             </GridItem>
           </Grid>
         </div>
-        <Button>Calculate</Button>
+        {/* <Button>Calculate</Button> */}
       </Stack>
     </>
   );
