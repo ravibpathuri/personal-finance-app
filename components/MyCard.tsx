@@ -9,27 +9,32 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { string } from "yup";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const IMAGE =
-  "https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80";
-
-const IMAGE2 =
+  "https://media.istockphoto.com/photos/calculator-on-yellow-background-calculation-in-business-finance-or-picture-id1320740500?s=612x612";
+const IMAGE1 =
   "https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80";
 interface MyCardProps {
   brand: string;
   discription: string;
-  image: string;
+  image: any;
   color: string;
-  link?: string;
+  link?: any;
+  backgroundImage?: any;
 }
 
 const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
-  const handleClick = () => {
-    {
-      props.link;
-    }
-    console.log("clicked!");
-  };
+  const router = useRouter();
+  // const handleClick = () => {
+  //   {
+  //     <Link href={props.link}>
+  //       <a>test</a>
+  //     </Link>;
+  //   }
+  //   console.log("clicked!");
+  // };
   return (
     <Center py={12}>
       <Box
@@ -56,7 +61,8 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
             pos: "absolute",
             top: 5,
             left: 0,
-            backgroundImage: `url(${IMAGE})`,
+            // backgroundImage: `url(${IMAGE})`,
+            backgroundImage: `url(${props.backgroundImage})`,
             filter: "blur(15px)",
             zIndex: -1,
           }}
@@ -89,7 +95,11 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
             {props.discription}
           </Heading> */}
 
-          <Button color={props.color} mt={3} onClick={handleClick}>
+          <Button
+            color={props.color}
+            mt={3}
+            onClick={() => router.push(props.link)}
+          >
             {props.discription}
           </Button>
         </Stack>
