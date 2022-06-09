@@ -2,12 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
-import p1 from "../public/static/img1.jpg";
 
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import MyCard from "../components/MyCard";
-import { Box, Button, Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (

@@ -1,37 +1,46 @@
-import { Button, Grid, GridItem, Input, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Divider, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import StepperInput from "./StepperInput";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { FaAirbnb, FaCalendar, FaChartLine, FaMoneyBill } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
 import Head from "next/head";
+import StepperInput from "./StepperInput";
+import * as formulajs from "@formulajs/formulajs";
+import { formatCurrency, TAX_LIMIT } from "../../utils";
 
 interface LumpsumTabProps {}
 
 const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
-  const [value, setValue] = React.useState("");
-  const [sliderValue, setSliderValue] = React.useState(0);
-  const handleChange = (value: any) => setValue(value);
-  const handleSliderChange = (sliderValue: any) => setSliderValue(sliderValue);
-  const validate = yup.object().shape({
-    years: yup.number().required(),
-    months: yup.number().required().positive().integer(),
-    amountInvested: yup.string().email(),
-    estimatedProfit: yup.string().url(),
-  });
+  const [months, setMonths] = React.useState<number>(50);
+  const [investedAmount, setInvestedAmount] = React.useState<number>(3000000);
+  const [fv, setFV] = React.useState<number>(6000000);
 
-  const formik = useFormik({
-    initialValues: {
-      years: "",
-      months: "",
-      amountInvested: "",
-      estimatedProfit: "",
-    },
-    validationSchema: validate,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
+  const [taxableAmount, setTaxableAmount] = React.useState<number>(0);
+  const [tax, setTax] = React.useState<number>(0);
+  const [rate, setRate] = React.useState<number>(0);
+
+  const handleCalculate = () => {
+    let profit = fv - Math.abs(investedAmount);
+    let taxableAmount = 0;
+    if (profit > TAX_LIMIT) {
+      taxableAmount = profit - TAX_LIMIT;
+    }
+
+    setTaxableAmount(taxableAmount);
+
+    // 10% levied if invested time is more than 1 year,
+    // 15% levied if invested time is less than 1 year.
+    const taxPercetage = months > 12 ? 10 : 15;
+    let tax = (taxableAmount * taxPercetage) / 100;
+    setTax(tax);
+
+    const profitAfterTx = profit - tax;
+    const fvAfterTax = investedAmount + profitAfterTx;
+    const rate = formulajs.ROUND(
+      formulajs.RATE(months, 0, -Math.abs(investedAmount), fv, 0, 0) * 100 * 12,
+      2
+    );
+
+    setRate(rate);
+  };
 
   return (
     <>
@@ -42,78 +51,63 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
       </Head>
       <Stack spacing={5}>
         <StepperInput
-          id="year"
+          label="Months"
+          id="months"
           min={0}
-          max={60}
-          label="Number of Years"
-          value={10}
-          onChange={(value: any) => {
-            setValue(value);
-            console.log(value);
-          }}
-          // onChange={handleSliderChange}
-          //onChange={onchange}
-          isDisabled={false} // number input will be disabled
-          hideSlider={false}
-          sliderIcon={FaCalendar} //sets an icon on slider handle
-          sliderIconSize={5} //sets the slider handle icon size
-          // sliderTrackColor="red.200" //sets the undragged portion slider track colour
-          numberInputPlaceholder="Enter Number of Years"
+          max={240}
+          value={months}
+          sliderIcon={FaCalendar}
+          onChange={(value: any) => setMonths(value)}
+        />
+        <StepperInput
+          label="Investment Amount"
+          id="amt"
+          min={0}
+          max={100000000}
+          value={investedAmount}
+          hideSlider
+          onChange={(value: any) => setInvestedAmount(value)}
+        />
+        <StepperInput
+          label="Future Value"
+          id="fv"
+          min={-10000000000}
+          max={10000000000}
+          value={fv}
+          hideSlider
+          onChange={(value: any) => setFV(value)}
         />
 
-        <StepperInput
-          id="month"
-          min={0}
-          max={720}
-          label="Number of Months"
-          value={25}
-          // onChange={handleSliderChange}
-          onChange={(value: any) => {
-            setValue(value);
-            console.log(value);
-          }}
-          sliderIcon={FaAirbnb}
-          sliderIconSize={5}
-        />
-        {/* <MySlider /> */}
-        <StepperInput
-          id="amout"
-          min={0}
-          max={1000000}
-          label="Amount Invested"
-          value={25}
-          sliderIcon={FaMoneyBill}
-          sliderIconSize={5}
-          step={5000}
-          symbol="[₹]"
-        />
-        <StepperInput
-          id="profit"
-          min={0}
-          max={1000000}
-          label="Estimated Profit"
-          value={25}
-          sliderIconSize={5}
-          sliderIcon={FaChartLine}
-          //symbol="[%]"
-        />
-        <div style={{ marginTop: 50 }}>
-          <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-            <GridItem>
-              <Text>Capital Gain Tax</Text>
-            </GridItem>
-            <GridItem>
-              <Input htmlSize={4} width="auto" isReadOnly />
-            </GridItem>
-            <GridItem>
-              <Text>Return Interest %</Text>
-            </GridItem>
-            <GridItem>
-              <Input htmlSize={4} width="auto" isReadOnly />
-            </GridItem>
-          </Grid>
-        </div>
-        {/* <Button>Calculate</Button> */}
+        <Stack>
+          <Button colorScheme="blue" onClick={handleCalculate}>
+            Calculate
+          </Button>
+          <HStack>
+            <Text>Profit</Text>
+            <Box as="span" marginLeft={50}>
+              {formatCurrency(fv - Math.abs(investedAmount))}
+            </Box>
+          </HStack>
+          <HStack>
+            <Text>Rate of Return</Text>
+            <Box as="span" marginLeft={50}>
+              {rate} %
+            </Box>
+          </HStack>
+          <Divider />
+          <HStack>
+            <Text>Taxable Amout on Profit</Text>
+            <Box as="span" marginLeft={50}>
+              {formatCurrency(taxableAmount)}
+            </Box>
+          </HStack>
+          <HStack>
+            <Text>Tax</Text>
+            <Box as="span" marginLeft={50}>
+              {formatCurrency(tax)}
+            </Box>
+          </HStack>
+        </Stack>
       </Stack>
     </>
   );
