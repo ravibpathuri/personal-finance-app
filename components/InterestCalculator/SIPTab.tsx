@@ -18,11 +18,12 @@ import { formatCurrency, TAX_LIMIT } from "../../utils";
 
 const formulajs = require("@formulajs/formulajs");
 
-interface LumpsumTabProps {}
+interface SIPTabProps {}
 
-const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
-  const [months, setMonths] = React.useState<number>(50);
-  const [investedAmount, setInvestedAmount] = React.useState<number>(3000000);
+const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
+  const [installments, setInstallments] = React.useState<number>(50);
+  const [installmentAmount, setInstallmentAmount] =
+    React.useState<number>(3000000);
   const [fv, setFV] = React.useState<number>(6000000);
 
   const [taxableAmount, setTaxableAmount] = React.useState<number>(0);
@@ -30,7 +31,7 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
   const [rate, setRate] = React.useState<number>(0);
 
   const handleCalculate = () => {
-    let profit = fv - Math.abs(investedAmount);
+    let profit = fv - Math.abs(installmentAmount);
     let taxableAmount = 0;
     if (profit > TAX_LIMIT) {
       taxableAmount = profit - TAX_LIMIT;
@@ -40,14 +41,16 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
 
     // 10% levied if invested time is more than 1 year,
     // 15% levied if invested time is less than 1 year.
-    const taxPercetage = months > 12 ? 10 : 15;
+    const taxPercetage = installments > 12 ? 10 : 15;
     let tax = (taxableAmount * taxPercetage) / 100;
     setTax(tax);
 
     const profitAfterTx = profit - tax;
-    const fvAfterTax = investedAmount + profitAfterTx;
+    const fvAfterTax = installmentAmount + profitAfterTx;
     const rate = formulajs.ROUND(
-      formulajs.RATE(months, 0, -Math.abs(investedAmount), fv, 0, 0) * 100 * 12,
+      formulajs.RATE(installments, 0, -Math.abs(installmentAmount), fv, 0, 0) *
+        100 *
+        12,
       2
     );
 
@@ -63,22 +66,22 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
       </Head>
       <Stack spacing={5}>
         <StepperInput
-          label="Months"
-          id="months"
+          label=" No of Installments"
+          id="installments"
           min={0}
           max={240}
-          value={months}
+          value={installments}
           sliderIcon={FaCalendar}
-          onChange={(value: any) => setMonths(value)}
+          onChange={(value: any) => setInstallments(value)}
         />
         <StepperInput
-          label="Investment Amount"
-          id="amt"
+          label="Installment Amount"
+          id="instAmt"
           min={0}
           max={100000000}
-          value={investedAmount}
+          value={installmentAmount}
           hideSlider
-          onChange={(value: any) => setInvestedAmount(value)}
+          onChange={(value: any) => setInstallmentAmount(value)}
         />
         <StepperInput
           label="Future Value"
@@ -117,10 +120,10 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
                   <Box as="span" marginLeft={50}>
                     <Badge
                       colorScheme={
-                        fv - Math.abs(investedAmount) < 0 ? "red" : "green"
+                        fv - Math.abs(installmentAmount) < 0 ? "red" : "green"
                       }
                     >
-                      {formatCurrency(fv - Math.abs(investedAmount))}
+                      {formatCurrency(fv - Math.abs(installmentAmount))}
                     </Badge>
                   </Box>
                 </GridItem>
@@ -173,4 +176,4 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
   );
 };
 
-export default LumpsumTab;
+export default SIPTab;

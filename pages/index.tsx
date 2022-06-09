@@ -26,9 +26,9 @@ const Home: NextPage = () => {
               brand=""
               discription="Numeric Calculator"
               color="#5e5948"
-              image="https://media.istockphoto.com/photos/calculator-on-yellow-background-calculation-in-business-finance-or-picture-id1320740500?s=612x612"
+              image="https://img.freepik.com/free-vector/calculator-concept-illustration_114360-1194.jpg?t=st=1654772407~exp=1654773007~hmac=a878fd7da96a9a2ef960207ec079e1ecc7750a24c80b0d0a58f11c6f5bf2007c&w=740"
               link="/numeric-calculator"
-              backgroundImage="https://media.istockphoto.com/photos/calculator-on-yellow-background-calculation-in-business-finance-or-picture-id1320740500?s=612x612"
+              backgroundImage="https://img.freepik.com/free-vector/calculator-concept-illustration_114360-1194.jpg?t=st=1654772407~exp=1654773007~hmac=a878fd7da96a9a2ef960207ec079e1ecc7750a24c80b0d0a58f11c6f5bf2007c&w=740"
             />
           </Box>
 
@@ -37,19 +37,19 @@ const Home: NextPage = () => {
               brand=""
               color="#5e5948"
               discription="Interest Rate Calculator"
-              image="https://media.istockphoto.com/photos/wooden-blocks-with-percentage-sign-and-arrow-up-financial-growth-picture-id1316707586"
+              image="https://img.freepik.com/free-vector/tax-concept-illustration_114360-5924.jpg?t=st=1654772544~exp=1654773144~hmac=23e66713e58244527a8a607d32a34f7dfc431a222d45ebc78597514d927c9ef4&w=740"
               link="/interest-calculator/rate"
-              backgroundImage="https://media.istockphoto.com/photos/wooden-blocks-with-percentage-sign-and-arrow-up-financial-growth-picture-id1316707586"
+              backgroundImage="https://img.freepik.com/free-vector/tax-concept-illustration_114360-5924.jpg?t=st=1654772544~exp=1654773144~hmac=23e66713e58244527a8a607d32a34f7dfc431a222d45ebc78597514d927c9ef4&w=740"
             />
           </Box>
           <Box>
             <MyCard
               brand=""
               discription="Future Value Calculator"
-              image="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+              image="https://img.freepik.com/free-vector/formula-concept-illustration_114360-8367.jpg?t=st=1654772618~exp=1654773218~hmac=d346fb2f9424515597284b0136045f45d4a79aa25bb990b4eed9ac66bef5d3d3&w=740"
               color="#5e5948"
               link="/interest-calculator/future-value"
-              backgroundImage="https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+              backgroundImage="https://img.freepik.com/free-vector/formula-concept-illustration_114360-8367.jpg?t=st=1654772618~exp=1654773218~hmac=d346fb2f9424515597284b0136045f45d4a79aa25bb990b4eed9ac66bef5d3d3&w=740"
             />
           </Box>
         </Stack>

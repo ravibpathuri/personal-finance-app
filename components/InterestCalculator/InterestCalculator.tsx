@@ -11,6 +11,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import LumpsumTab from "./LumpsumTab";
+import SIPTab from "./SIPTab";
 
 interface InterestCalculatorProps {
   type: "Rate" | "FutureValue";
@@ -42,7 +43,9 @@ const InterestCalculator: React.FC<InterestCalculatorProps> = ({ type }) => {
             <TabPanel>
               <LumpsumTab />
             </TabPanel>
-            <TabPanel></TabPanel>
+            <TabPanel>
+              <SIPTab />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Box>
