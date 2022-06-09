@@ -3,8 +3,9 @@ import React from "react";
 import { FaCalendar } from "react-icons/fa";
 import Head from "next/head";
 import StepperInput from "./StepperInput";
-import * as formulajs from "@formulajs/formulajs";
 import { formatCurrency, TAX_LIMIT } from "../../utils";
+
+const formulajs = require("@formulajs/formulajs");
 
 interface LumpsumTabProps {}
 
