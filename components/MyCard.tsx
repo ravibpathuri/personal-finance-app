@@ -7,6 +7,7 @@ import {
   Stack,
   Image,
   Button,
+  Img,
 } from "@chakra-ui/react";
 import { string } from "yup";
 import Link from "next/link";
@@ -49,6 +50,7 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
         zIndex={1}
       >
         <Box
+          onClick={() => router.push(props.link)}
           rounded={"lg"}
           mt={-12}
           pos={"relative"}
@@ -73,7 +75,15 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
             },
           }}
         >
-          <Image
+          {/* <Image
+            rounded={"lg"}
+            height={230}
+            width={282}
+            objectFit={"cover"}
+            src={props.image}
+            alt="image"
+          /> */}
+          <Img
             rounded={"lg"}
             height={230}
             width={282}
