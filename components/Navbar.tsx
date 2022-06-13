@@ -27,11 +27,14 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-import logo from "../assets/download.png";
+import logo from "../assets/calc1.png";
+import { FaHome } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 interface NavBarProps {}
 
 const NavBar: React.FunctionComponent<NavBarProps> = () => {
+  const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box>
@@ -61,11 +64,15 @@ const NavBar: React.FunctionComponent<NavBarProps> = () => {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Img
+          {/* <Img
             src="https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/Calculator_512.png"
             width={8}
             height={8}
-          />
+          /> */}
+          <Image src="econometer.png" width={95} alt="logo" />
+          {/* <Heading color="orange" as="h5" size="sm">
+            FIN.CAL
+          </Heading> */}
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -78,16 +85,10 @@ const NavBar: React.FunctionComponent<NavBarProps> = () => {
           direction={"row"}
           spacing={6}
         >
-          {/* <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
+          <Button color="teal.400" onClick={() => router.push("/")} size="xs">
+            <FaHome />
           </Button>
-          <Button
+          {/* <Button
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
