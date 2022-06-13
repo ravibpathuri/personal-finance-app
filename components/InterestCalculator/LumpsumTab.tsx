@@ -11,7 +11,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { FaCalendar } from "react-icons/fa";
+import { FaCalendar, FaArrowAltCircleLeft } from "react-icons/fa";
 import Head from "next/head";
 import StepperInput from "./StepperInput";
 import { formatCurrency, TAX_LIMIT } from "../../utils";
@@ -61,6 +61,7 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
           Rate Caculator - Personal Finance app powered by Predifast
         </title>
       </Head>
+
       <Stack spacing={5}>
         <StepperInput
           label="Months"

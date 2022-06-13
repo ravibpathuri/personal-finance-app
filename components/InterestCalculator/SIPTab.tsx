@@ -47,6 +47,9 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
 
     const profitAfterTx = profit - tax;
     const fvAfterTax = installmentAmount + profitAfterTx;
+    const tiaCal = installments * installmentAmount;
+    const tia = tiaCal;
+
     const rate = formulajs.ROUND(
       formulajs.RATE(installments, 0, -Math.abs(installmentAmount), fv, 0, 0) *
         100 *
@@ -113,6 +116,18 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
             >
               <HStack>
                 <GridItem w="100%" h="10">
+                  <FormLabel>Total Invested Amount</FormLabel>
+                </GridItem>
+
+                <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
+                  <Box as="span" marginLeft={50}>
+                    <Badge colorScheme={"green"}>{}</Badge>
+                  </Box>
+                </GridItem>
+              </HStack>
+
+              <HStack>
+                <GridItem w="100%" h="10">
                   <FormLabel>Profit</FormLabel>
                 </GridItem>
 
@@ -136,7 +151,6 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>
                     <Badge colorScheme={rate < 0 ? "red" : "green"}>
-                      {" "}
                       {rate} %
                     </Badge>
                   </Box>
