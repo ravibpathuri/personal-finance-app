@@ -21,16 +21,18 @@ const formulajs = require("@formulajs/formulajs");
 interface LumpsumTabProps {}
 
 const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
-  const [months, setMonths] = React.useState<number>(50);
+  const [months, setMonths] = React.useState<number>(60);
   const [investedAmount, setInvestedAmount] = React.useState<number>(3000000);
   const [fv, setFV] = React.useState<number>(6000000);
 
   const [taxableAmount, setTaxableAmount] = React.useState<number>(0);
+  const [profit, setProfit] = React.useState<number>(0);
   const [tax, setTax] = React.useState<number>(0);
   const [rate, setRate] = React.useState<number>(0);
 
   const handleCalculate = () => {
     let profit = fv - Math.abs(investedAmount);
+    setProfit(profit);
     let taxableAmount = 0;
     if (profit > TAX_LIMIT) {
       taxableAmount = profit - TAX_LIMIT;
@@ -44,10 +46,10 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
     let tax = (taxableAmount * taxPercetage) / 100;
     setTax(tax);
 
-    const profitAfterTx = profit - tax;
-    const fvAfterTax = investedAmount + profitAfterTx;
     const rate = formulajs.ROUND(
-      formulajs.RATE(months, 0, -Math.abs(investedAmount), fv, 0, 0) * 100 * 12,
+      formulajs.RATE(months, 0, -Math.abs(investedAmount), fv, 0, 0.1) *
+        100 *
+        12,
       2
     );
 
@@ -111,17 +113,13 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
             >
               <HStack>
                 <GridItem w="100%" h="10">
-                  <FormLabel>Profit</FormLabel>
+                  <FormLabel>{profit < 0 ? "Loss" : "Profit"}</FormLabel>
                 </GridItem>
 
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>
-                    <Badge
-                      colorScheme={
-                        fv - Math.abs(investedAmount) < 0 ? "red" : "green"
-                      }
-                    >
-                      {formatCurrency(fv - Math.abs(investedAmount))}
+                    <Badge colorScheme={profit < 0 ? "red" : "green"}>
+                      {formatCurrency(profit)}
                     </Badge>
                   </Box>
                 </GridItem>
@@ -134,7 +132,6 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>
                     <Badge colorScheme={rate < 0 ? "red" : "green"}>
-                      {" "}
                       {rate} %
                     </Badge>
                   </Box>
@@ -145,7 +142,7 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
 
               <HStack>
                 <GridItem w="100%" h="10">
-                  <FormLabel>Taxable Amout on Profit</FormLabel>
+                  <FormLabel>Taxable Amout</FormLabel>
                 </GridItem>
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>

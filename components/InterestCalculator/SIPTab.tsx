@@ -21,17 +21,22 @@ const formulajs = require("@formulajs/formulajs");
 interface SIPTabProps {}
 
 const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
-  const [installments, setInstallments] = React.useState<number>(50);
+  const [installments, setInstallments] = React.useState<number>(60);
   const [installmentAmount, setInstallmentAmount] =
-    React.useState<number>(3000000);
-  const [fv, setFV] = React.useState<number>(6000000);
+    React.useState<number>(15000);
+  const [fv, setFV] = React.useState<number>(1800000);
+  const [totalInvestedAmount, setTotalInvestedAmount] = React.useState(0);
 
   const [taxableAmount, setTaxableAmount] = React.useState<number>(0);
+  const [profit, setProfit] = React.useState<number>(0);
   const [tax, setTax] = React.useState<number>(0);
   const [rate, setRate] = React.useState<number>(0);
 
   const handleCalculate = () => {
-    let profit = fv - Math.abs(installmentAmount);
+    let totalInvestedAmount = installments * installmentAmount;
+    setTotalInvestedAmount(totalInvestedAmount);
+    let profit = fv - Math.abs(totalInvestedAmount);
+    setProfit(profit);
     let taxableAmount = 0;
     if (profit > TAX_LIMIT) {
       taxableAmount = profit - TAX_LIMIT;
@@ -45,13 +50,15 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
     let tax = (taxableAmount * taxPercetage) / 100;
     setTax(tax);
 
-    const profitAfterTx = profit - tax;
-    const fvAfterTax = installmentAmount + profitAfterTx;
-    const tiaCal = installments * installmentAmount;
-    const tia = tiaCal;
-
     const rate = formulajs.ROUND(
-      formulajs.RATE(installments, 0, -Math.abs(installmentAmount), fv, 0, 0) *
+      formulajs.RATE(
+        installments,
+        -Math.abs(installmentAmount),
+        0,
+        fv,
+        1,
+        0.1
+      ) *
         100 *
         12,
       2
@@ -116,29 +123,27 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
             >
               <HStack>
                 <GridItem w="100%" h="10">
-                  <FormLabel>Total Invested Amount</FormLabel>
+                  <FormLabel>Invested Amount</FormLabel>
                 </GridItem>
 
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>
-                    <Badge colorScheme={"green"}>{}</Badge>
+                    <Badge colorScheme={"green"}>
+                      {formatCurrency(totalInvestedAmount)}
+                    </Badge>
                   </Box>
                 </GridItem>
               </HStack>
 
               <HStack>
                 <GridItem w="100%" h="10">
-                  <FormLabel>Profit</FormLabel>
+                  <FormLabel>{profit < 0 ? "Loss" : "Profit"}</FormLabel>
                 </GridItem>
 
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>
-                    <Badge
-                      colorScheme={
-                        fv - Math.abs(installmentAmount) < 0 ? "red" : "green"
-                      }
-                    >
-                      {formatCurrency(fv - Math.abs(installmentAmount))}
+                    <Badge colorScheme={profit < 0 ? "red" : "green"}>
+                      {formatCurrency(profit)}
                     </Badge>
                   </Box>
                 </GridItem>
@@ -161,7 +166,7 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
 
               <HStack>
                 <GridItem w="100%" h="10">
-                  <FormLabel>Taxable Amout on Profit</FormLabel>
+                  <FormLabel>Taxable Amout</FormLabel>
                 </GridItem>
                 <GridItem w="100%" h="10" style={{ textAlign: "right" }}>
                   <Box as="span" marginLeft={50}>

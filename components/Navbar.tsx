@@ -19,6 +19,7 @@ import {
   Image,
   FormLabel,
   Img,
+  useColorMode,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -27,13 +28,18 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-import logo from "../assets/calc1.png";
 import { FaHome } from "react-icons/fa";
 import { useRouter } from "next/router";
 
 interface NavBarProps {}
 
 const NavBar: React.FunctionComponent<NavBarProps> = () => {
+  const DARK_LOGO = "finance_lab3.png";
+  const LIGHT_LOGO = "finance_lab4.png";
+
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+  const logo = isDark ? DARK_LOGO : LIGHT_LOGO;
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
   return (
@@ -69,7 +75,7 @@ const NavBar: React.FunctionComponent<NavBarProps> = () => {
             width={8}
             height={8}
           /> */}
-          <Image src="econometer.png" width={95} alt="logo" />
+          <Image src={logo} width={110} alt="logo" />
           {/* <Heading color="orange" as="h5" size="sm">
             FIN.CAL
           </Heading> */}
