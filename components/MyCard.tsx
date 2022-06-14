@@ -21,7 +21,7 @@ interface MyCardProps {
   brand: string;
   discription: string;
   image: any;
-  color: string;
+  color?: string;
   link?: any;
   backgroundImage?: any;
 }
@@ -106,7 +106,7 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
           </Heading> */}
 
           <Button
-            color={props.color}
+            colorScheme={props.color}
             mt={3}
             onClick={() => router.push(props.link)}
           >
