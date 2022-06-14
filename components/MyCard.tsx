@@ -63,6 +63,7 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
             pos: "absolute",
             top: 5,
             left: 0,
+
             // backgroundImage: `url(${IMAGE})`,
             backgroundImage: `url(${props.backgroundImage})`,
             filter: "blur(15px)",
