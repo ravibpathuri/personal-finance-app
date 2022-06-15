@@ -14,6 +14,9 @@ import {
   FormLabel,
   FormControl,
   useColorModeValue,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react";
 
 // import "fa-icons";
@@ -50,6 +53,7 @@ interface StepperInputProps {
   numberInputColor?: any;
   numberInputPlaceholder?: any;
   numberInputBgColor?: any;
+  isStepperHidden?: boolean;
 }
 
 type changeType = {
@@ -126,7 +130,12 @@ const StepperInput: React.FunctionComponent<StepperInputProps> = (props) => {
               <NumberInputField
                 color={props.numberInputColor}
                 placeholder={props.numberInputPlaceholder}
+                min={props.min}
               ></NumberInputField>
+              <NumberInputStepper hidden={props.isStepperHidden}>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
             </NumberInput>
           </FormControl>
         </HStack>

@@ -1,4 +1,4 @@
-import { Heading, Icon } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import React from "react";
 import {
   Tabs,
@@ -12,13 +12,14 @@ import {
 } from "@chakra-ui/react";
 import LumpsumTab from "./LumpsumTab";
 import SIPTab from "./SIPTab";
-import { FaHome } from "react-icons/fa";
 
-interface InterestCalculatorProps {
+interface FutureValueCalculatorProps {
   type: "Rate" | "FutureValue";
 }
 
-const InterestCalculator: React.FC<InterestCalculatorProps> = ({ type }) => {
+const FutureValueCalculator: React.FC<FutureValueCalculatorProps> = ({
+  type,
+}) => {
   return (
     <Center>
       <Box as={"div"} mt={10} maxW="md" w="100%">
@@ -28,7 +29,7 @@ const InterestCalculator: React.FC<InterestCalculatorProps> = ({ type }) => {
 
         <Center>
           <Heading as="h4" size="md" style={{ margin: 15 }} color="orange.300">
-            Interest Rate Calculator
+            Future Value Calculator
           </Heading>
         </Center>
 
@@ -58,4 +59,4 @@ const InterestCalculator: React.FC<InterestCalculatorProps> = ({ type }) => {
   );
 };
 
-export default InterestCalculator;
+export default FutureValueCalculator;

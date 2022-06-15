@@ -6,7 +6,7 @@ import {
   fireEvent,
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import StepperInput from "../StepperInput";
+import StepperInput from "../StpperInput";
 
 describe("Stepper Input", () => {
   const handleOnChange = jest.fn();

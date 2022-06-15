@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 
-import InterestCalculator from "../../components/InterestCalculator";
+import FutureValueCalculator from "../../components/FutureValueCalculator";
 
 const FVCalculatorPage: NextPage = () => (
-  <InterestCalculator type="FutureValue" />
+  <FutureValueCalculator type="FutureValue" />
 );
 
 export default FVCalculatorPage;

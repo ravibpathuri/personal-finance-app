@@ -13,8 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { FaCalendar } from "react-icons/fa";
 import Head from "next/head";
-import StepperInput from "./StepperInput";
-import { formatCurrency, TAX_LIMIT } from "../../utils";
+import StepperInput from "../StepperInput";
+import { formatCurrency, getRate, TAX_LIMIT } from "../../utils";
 
 const formulajs = require("@formulajs/formulajs");
 
@@ -49,20 +49,7 @@ const SIPTab: React.FunctionComponent<SIPTabProps> = () => {
     const taxPercetage = installments > 12 ? 10 : 15;
     let tax = (taxableAmount * taxPercetage) / 100;
     setTax(tax);
-
-    const rate = formulajs.ROUND(
-      formulajs.RATE(
-        installments,
-        -Math.abs(installmentAmount),
-        0,
-        fv,
-        1,
-        0.1
-      ) *
-        100 *
-        12,
-      2
-    );
+    const rate = getRate(installments, installmentAmount, fv, true);
 
     setRate(rate);
   };
