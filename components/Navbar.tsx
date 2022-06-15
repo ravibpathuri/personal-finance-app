@@ -34,8 +34,8 @@ import { useRouter } from "next/router";
 interface NavBarProps {}
 
 const NavBar: React.FunctionComponent<NavBarProps> = () => {
-  const DARK_LOGO = "finance_lab3.png";
-  const LIGHT_LOGO = "finance_lab4.png";
+  const DARK_LOGO = "/finance_lab3.png";
+  const LIGHT_LOGO = "/finance_lab4.png";
 
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";

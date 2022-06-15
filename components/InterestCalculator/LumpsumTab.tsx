@@ -9,6 +9,7 @@ import {
   GridItem,
   HStack,
   Stack,
+  useColorModeValue,
   Text,
 } from "@chakra-ui/react";
 import { FaCalendar, FaArrowAltCircleLeft } from "react-icons/fa";
@@ -94,17 +95,20 @@ const LumpsumTab: React.FunctionComponent<LumpsumTabProps> = () => {
         />
 
         <Stack>
-          <Button colorScheme="blue" onClick={handleCalculate}>
+          <Button colorScheme="teal" onClick={handleCalculate}>
             Calculate
           </Button>
 
           <Box
-            borderWidth="3px"
+            borderWidth="2px"
             borderRadius="lg"
-            borderColor="blue.100"
+            borderColor="teal.100"
             overflow="auto"
             padding={5}
             style={{ marginTop: 20 }}
+            // bg={useColorModeValue("white", "gray.800")}
+            // zIndex={1}
+            // boxShadow={"2xl"}
           >
             <Grid
               templateRows="repeat(1, 1fr)"

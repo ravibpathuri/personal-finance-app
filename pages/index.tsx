@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           content=" Finance lab is a Personal Finance Calculator App "
         />
         <meta name="theme-color" content="#000" />
-        <title>FINANCE LAB</title>
+        <title>FINANCE LAB - Powerd by Apple Bee</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
         {/* <link rel="apple-touch-icon" href="/apple-icon.png"></link> */}
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
             <MyCard
               brand=""
               discription="Numeric Calculator"
-              color="red"
+              color="red.400"
               image="https://img.freepik.com/free-vector/calculator-concept-illustration_114360-1194.jpg?t=st=1654772407~exp=1654773007~hmac=a878fd7da96a9a2ef960207ec079e1ecc7750a24c80b0d0a58f11c6f5bf2007c&w=740"
               link="/numeric-calculator"
               backgroundImage="https://img.freepik.com/free-vector/calculator-concept-illustration_114360-1194.jpg?t=st=1654772407~exp=1654773007~hmac=a878fd7da96a9a2ef960207ec079e1ecc7750a24c80b0d0a58f11c6f5bf2007c&w=740"
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           <Box>
             <MyCard
               brand=""
-              color="blue"
+              color="blue.400"
               discription="Interest Rate Calculator"
               image="https://img.freepik.com/free-vector/tax-concept-illustration_114360-5924.jpg?t=st=1654772544~exp=1654773144~hmac=23e66713e58244527a8a607d32a34f7dfc431a222d45ebc78597514d927c9ef4&w=740"
               link="/interest-calculator/rate"
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
               brand=""
               discription="Future Value Calculator"
               image="https://img.freepik.com/free-vector/formula-concept-illustration_114360-8367.jpg?t=st=1654772618~exp=1654773218~hmac=d346fb2f9424515597284b0136045f45d4a79aa25bb990b4eed9ac66bef5d3d3&w=740"
-              color="purple"
+              color="purple.400"
               link="/interest-calculator/future-value"
               backgroundImage="https://img.freepik.com/free-vector/formula-concept-illustration_114360-8367.jpg?t=st=1654772618~exp=1654773218~hmac=d346fb2f9424515597284b0136045f45d4a79aa25bb990b4eed9ac66bef5d3d3&w=740"
             />
