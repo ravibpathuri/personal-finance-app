@@ -48,6 +48,7 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
         rounded={"lg"}
         pos={"relative"}
         zIndex={1}
+        _hover={{ border: "2px", borderColor: "orange.100" }}
       >
         <Box
           onClick={() => router.push(props.link)}
@@ -63,9 +64,11 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
             pos: "absolute",
             top: 5,
             left: 0,
+
             // backgroundImage: `url(${IMAGE})`,
             backgroundImage: `url(${props.backgroundImage})`,
             filter: "blur(15px)",
+
             zIndex: -1,
           }}
           _hover={{}}
@@ -106,7 +109,12 @@ const MyCard: React.FunctionComponent<MyCardProps> = (props) => {
           </Heading> */}
 
           <Button
-            colorScheme={props.color}
+            //colorScheme={props.color}
+            color={props.color}
+            rounded={"full"}
+            _focus={{
+              bg: "gray.200",
+            }}
             mt={3}
             onClick={() => router.push(props.link)}
           >

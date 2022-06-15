@@ -27,7 +27,7 @@ const InterestCalculator: React.FC<InterestCalculatorProps> = ({ type }) => {
         </div> */}
 
         <Center>
-          <Heading as="h4" size="md" style={{ margin: 15, color: "#189AB4" }}>
+          <Heading as="h4" size="md" style={{ margin: 15, color: "orange" }}>
             Interest Rate Calculator
           </Heading>
         </Center>

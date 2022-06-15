@@ -13,6 +13,7 @@ import {
   HStack,
   FormLabel,
   FormControl,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 // import "fa-icons";
@@ -86,7 +87,15 @@ const StepperInput: React.FunctionComponent<StepperInputProps> = (props) => {
 
   return (
     <Stack spacing={4} align="stretch">
-      <Box borderWidth="1px" borderRadius="lg" overflow="auto" padding={5}>
+      <Box
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="auto"
+        padding={5}
+        bg={useColorModeValue("white", "gray.800")}
+        zIndex={1}
+        boxShadow="md"
+      >
         <HStack gap={10}>
           <FormControl>
             <FormLabel
