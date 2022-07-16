@@ -3,17 +3,17 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
 import { appWithTranslation } from "next-i18next";
-import { SessionProvider } from "next-auth/react";
 
 import { reactPlugin } from "../AppInsights";
+import Layout from "../components/Layout";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AppInsightsContext.Provider value={reactPlugin}>
       <ChakraProvider>
-        <SessionProvider session={session}>
+        <Layout>
           <Component {...pageProps} />
-        </SessionProvider>
+        </Layout>
       </ChakraProvider>
     </AppInsightsContext.Provider>
   );
