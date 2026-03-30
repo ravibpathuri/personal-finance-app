@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Root — Family Asset Continuity</title>
+    <title>India Root — Product Brief</title>
     <style>
         * {
             margin: 0;
@@ -12,16 +12,14 @@
         }
 
         :root {
-            --primary: #2d5a4a;
-            --primary-light: #4a8b73;
-            --accent: #d4a373;
-            --accent-dark: #b8915d;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #fafaf8;
-            --bg-white: #ffffff;
-            --border: #e8e6e1;
-            --success: #6b9f7f;
+            --navy: #0f1419;
+            --teal: #0d9488;
+            --teal-light: #14b8a6;
+            --orange: #f97316;
+            --gray-dark: #1f2937;
+            --gray-light: #f3f4f6;
+            --gray-text: #6b7280;
+            --white: #ffffff;
         }
 
         html {
@@ -29,316 +27,349 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            color: var(--text-dark);
-            background: var(--bg-white);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            color: var(--navy);
+            background: var(--white);
             line-height: 1.6;
+        }
+
+        /* Global Typography */
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--gray-text);
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        em {
+            font-style: italic;
+            color: var(--teal);
         }
 
         /* Navigation */
         nav {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            background: var(--bg-white);
-            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--gray-light);
+            padding: 1.5rem 2rem;
         }
 
-        nav .container {
-            max-width: 1200px;
+        nav .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--teal);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         nav a {
-            color: var(--text-light);
+            color: var(--gray-text);
             text-decoration: none;
+            font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.3s ease;
-            position: relative;
         }
 
         nav a:hover {
-            color: var(--primary);
+            color: var(--teal);
+        }
+
+        /* Body padding for fixed nav */
+        body {
+            padding-top: 70px;
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, #f5f2ed 100%);
+        /* Sections */
+        section {
             padding: 6rem 2rem;
+        }
+
+        section.hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2332 100%);
+            color: var(--white);
+            padding: 8rem 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        section.hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 163, 115, 0.08) 0%, transparent 70%);
+            top: 0;
+            right: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
             border-radius: 50%;
+            pointer-events: none;
         }
 
+        section.alt-bg {
+            background: var(--gray-light);
+        }
+
+        /* Hero Content */
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            animation: fadeInUp 0.8s ease-out;
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+            color: var(--white);
+            margin-bottom: 2rem;
         }
 
         .hero p {
+            color: rgba(255, 255, 255, 0.85);
             font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(45, 90, 74, 0.15);
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 5rem 2rem;
-            background: var(--bg-white);
-        }
-
+        /* Section Header */
         .section-header {
-            text-align: center;
             margin-bottom: 4rem;
+            max-width: 800px;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .stat-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-            animation: slideInUp 0.6s ease-out;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
+        .section-label {
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* Cards */
+        .card {
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+            border-color: var(--teal);
+        }
+
+        .card h3 {
+            color: var(--navy);
+        }
+
+        .card p {
+            margin-bottom: 0;
+        }
+
+        .card.accent {
+            background: var(--teal);
+            color: var(--white);
+            border: none;
+        }
+
+        .card.accent h3,
+        .card.accent h4 {
+            color: var(--white);
+        }
+
+        .card.accent p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Stat Display */
+        .stat-large {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--teal);
+            line-height: 1;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
             font-size: 0.95rem;
-            color: var(--text-light);
+            font-weight: 600;
+            color: var(--navy);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            letter-spacing: 0.05em;
         }
 
-        .stat-card.highlight {
-            background: linear-gradient(135deg, rgba(212, 163, 115, 0.1) 0%, rgba(107, 159, 127, 0.1) 100%);
-            border-left-color: var(--accent-dark);
+        .stat-source {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+            margin-top: 0.5rem;
         }
 
-        /* Vision Section */
-        .vision {
-            padding: 5rem 2rem;
-            background: var(--bg-light);
-        }
-
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .vision-card {
-            background: var(--bg-white);
-            padding: 2rem;
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--teal);
+            color: var(--white);
+            padding: 3rem;
             border-radius: 12px;
-            border-top: 3px solid var(--primary);
-            animation: fadeIn 0.6s ease-out;
+            margin: 3rem 0;
         }
 
-        .vision-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
+        .highlight-box h2 {
+            color: var(--white);
         }
 
-        .vision-card p {
-            color: var(--text-light);
-            line-height: 1.7;
+        .highlight-box h3 {
+            color: var(--white);
         }
 
-        /* Features Section */
-        .features {
-            padding: 5rem 2rem;
-            background: var(--bg-white);
+        .highlight-box p {
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+        .highlight-box strong {
+            color: var(--white);
         }
 
-        .feature-card {
-            padding: 2.5rem;
-            background: var(--bg-light);
+        /* Mission Box */
+        .mission-box {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem;
             border-radius: 12px;
-            animation: slideInUp 0.6s ease-out;
-            transition: all 0.3s ease;
+            text-align: center;
+            border-left: 6px solid var(--orange);
+            margin: 3rem 0;
         }
 
-        .feature-card:hover {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        .mission-box h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .feature-card h3 {
+        .mission-box p {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
         }
 
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .feature-list {
-            margin-top: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
+        /* Badge */
         .badge {
             display: inline-block;
-            background: var(--primary);
+            background: var(--teal);
             color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.5rem;
+            margin-top: 1rem;
         }
 
-        /* Comparison Table */
-        .comparison {
-            padding: 5rem 2rem;
-            background: var(--bg-light);
-        }
-
-        .table-wrapper {
+        /* Table */
+        .table-container {
             overflow-x: auto;
-            margin-top: 2rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--bg-white);
-            border-radius: 8px;
-            overflow: hidden;
+            background: var(--white);
+            border-radius: 12px;
         }
 
         th {
-            background: var(--primary);
-            color: white;
-            padding: 1.2rem;
+            background: var(--navy);
+            color: var(--white);
+            padding: 1.5rem;
             text-align: left;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
+            letter-spacing: 0.05em;
         }
 
         td {
-            padding: 1.2rem;
-            border-bottom: 1px solid var(--border);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
             font-size: 0.95rem;
         }
 
@@ -347,186 +378,174 @@
         }
 
         tbody tr:hover {
-            background: rgba(212, 163, 115, 0.03);
+            background: var(--gray-light);
         }
 
-        .checkmark {
-            color: var(--success);
-            font-weight: 700;
-            font-size: 1.2rem;
+        .check {
+            color: var(--teal);
+            font-weight: 800;
+            font-size: 1.3rem;
         }
 
         .cross {
-            color: #d4756f;
+            color: #ef4444;
+            font-weight: 800;
+        }
+
+        .tilde {
+            color: var(--gray-text);
             font-weight: 700;
         }
 
-        /* Impact Section */
-        .impact {
-            padding: 5rem 2rem;
-            background: var(--bg-white);
-        }
-
-        .impact-content {
+        /* Feature List */
+        .feature-list {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .impact-text h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        .impact-text p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .impact-numbers {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .impact-number {
-            padding: 2rem;
-            background: var(--bg-light);
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--gray-light);
             border-radius: 8px;
-            border-left: 4px solid var(--accent);
+            border-top: 3px solid var(--teal);
         }
 
-        .impact-number .value {
-            font-size: 2rem;
+        .feature-item h4 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Accent Divider */
+        .divider {
+            height: 3px;
+            background: var(--orange);
+            width: 60px;
+            margin: 2rem 0;
+        }
+
+        /* CTA Button */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
             font-weight: 700;
-            color: var(--primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .impact-number .label {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
+        .btn.primary {
+            background: var(--teal);
+            color: var(--white);
         }
 
-        /* Moat Section */
-        .moat {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, var(--bg-light) 0%, rgba(212, 163, 115, 0.05) 100%);
+        .btn.primary:hover {
+            background: var(--teal-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(13, 148, 136, 0.3);
         }
 
-        .moat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+        .btn.secondary {
+            background: var(--navy);
+            color: var(--white);
         }
 
-        .moat-card {
-            background: var(--bg-white);
+        .btn.secondary:hover {
+            background: var(--gray-dark);
+        }
+
+        /* Quote */
+        .quote-box {
             padding: 2.5rem;
-            border-radius: 12px;
-            border-top: 3px solid var(--accent);
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .moat-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .moat-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 4rem 2rem;
-            background: var(--primary);
-            color: white;
+            background: var(--orange);
+            border-radius: 8px;
             text-align: center;
-            margin-top: 4rem;
+            margin: 3rem 0;
         }
 
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+        .quote-box p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0;
+            font-style: italic;
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
-            color: white;
+            background: var(--navy);
+            color: var(--white);
             padding: 3rem 2rem;
             text-align: center;
-            font-size: 0.9rem;
-            margin-top: 3rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             nav ul {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.2rem;
+            h1 {
+                font-size: 2.5rem;
             }
 
-            .section-header h2 {
+            h2 {
                 font-size: 1.8rem;
             }
+        }
 
-            .impact-content {
+        @media (max-width: 640px) {
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .grid-3,
+            .grid-4 {
                 grid-template-columns: 1fr;
             }
 
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .stat-large {
+                font-size: 2.5rem;
+            }
+
             table {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             th, td {
@@ -538,13 +557,13 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;">
-            <div class="logo">🌿 India Root</div>
-            <ul style="display: flex; gap: 2rem; list-style: none;">
-                <li><a href="#problem" style="color: var(--text-light); text-decoration: none;">The Problem</a></li>
-                <li><a href="#vision" style="color: var(--text-light); text-decoration: none;">Our Vision</a></li>
-                <li><a href="#features" style="color: var(--text-light); text-decoration: none;">Features</a></li>
-                <li><a href="#impact" style="color: var(--text-light); text-decoration: none;">Impact</a></li>
+        <div class="nav-container">
+            <div class="nav-logo">🌿 Root</div>
+            <ul>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#impact">Impact</a></li>
             </ul>
         </div>
     </nav>
@@ -553,278 +572,385 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>India's Family First Asset Continuity Infrastructure</h1>
-                <p>When families need each other most, the wealth that matters gets lost. India Root ensures that never happens again.</p>
-                <button class="cta-button">Get Early Access</button>
+                <div class="section-label">India Root · Product Brief</div>
+                <h1>India Root</h1>
+                <h2 style="color: rgba(255, 255, 255, 0.9); font-size: 2.2rem; font-weight: 400; margin-top: -1rem;">The Problem We're Solving</h2>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem" id="problem">
+    <section id="problem">
         <div class="container">
             <div class="section-header">
-                <h2>The Hidden Crisis</h2>
-                <p>Over ₹1 Lakh Crore in unclaimed wealth sits dormant across India's financial system—growing every day.</p>
+                <span class="section-label">The Crisis</span>
+                <h2>Unclaimed wealth in India</h2>
             </div>
 
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-value">₹35K Cr</div>
+            <div style="margin-bottom: 3rem;">
+                <div class="stat-large">₹1 Lakh Crore+</div>
+                <p style="font-size: 1.1rem; color: var(--navy);">sits unclaimed across India's financial system today. And it's only growing.</p>
+            </div>
+
+            <div class="grid-4">
+                <div class="card">
+                    <div class="stat-large" style="font-size: 2.5rem;">₹35K Cr</div>
                     <div class="stat-label">Bank Accounts</div>
+                    <div class="stat-source">Reserve Bank of India</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">₹50K Cr</div>
+                <div class="card">
+                    <div class="stat-large" style="font-size: 2.5rem;">₹50K Cr</div>
                     <div class="stat-label">PF Accounts</div>
+                    <div class="stat-source">EPFO</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">₹20K Cr</div>
+                <div class="card">
+                    <div class="stat-large" style="font-size: 2.5rem;">₹20K Cr</div>
                     <div class="stat-label">Life Insurance</div>
+                    <div class="stat-source">IRDAI</div>
                 </div>
-                <div class="stat-card highlight">
-                    <div class="stat-value">₹1L+ Cr</div>
-                    <div class="stat-label">Total Unclaimed</div>
+                <div class="card">
+                    <div class="stat-large" style="font-size: 2.5rem;">₹5K Cr</div>
+                    <div class="stat-label">Shares & Dividends</div>
+                    <div class="stat-source">Ministry of Corp. Affairs</div>
                 </div>
             </div>
 
-            <div style="background: var(--bg-light); padding: 2.5rem; border-radius: 12px; margin-top: 3rem;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Why This Matters</h3>
-                <p style="color: var(--text-light); line-height: 1.8; font-size: 1.05rem;">In the hardest moments—after loss—families spend months navigating paperwork, offices, and confusing systems. Not because the assets are missing. But because <strong>information is scattered and no one knows where to look.</strong></p>
+            <div class="card" style="margin-top: 3rem; background: var(--orange); border: none; color: var(--white);">
+                <div class="stat-label" style="color: var(--white); text-transform: uppercase;">Projected Unclaimed Wealth</div>
+                <p style="color: white; font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>₹1.5–2 Lakh Cr</strong> in 5 years</p>
+                <p style="color: white; font-size: 1.2rem; margin-bottom: 0;"><strong>₹2–3 Lakh Cr+</strong> in 10 years</p>
+            </div>
+
+            <div style="margin-top: 3rem; padding-bottom: 3rem; border-bottom: 2px solid var(--gray-light);">
+                <h3 style="color: var(--navy);">The Real Problem</h3>
+                <p>In the hardest moments, families spend months — even years — navigating paperwork, offices, and complex systems. Not because anything is missing — <strong>but because information is scattered and no one knows where to look.</strong></p>
+            </div>
+
+            <div class="mission-box">
+                <h3 style="margin-top: 0;">Our Mission</h3>
+                <p style="margin-bottom: 0;">India Root is built to ensure this never happens to another Indian family.</p>
+                <p style="font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 0;"><strong>We are the answer.</strong></p>
+            </div>
+
+            <div style="text-align: center; color: var(--gray-text); font-size: 0.85rem; margin-top: 3rem;">
+                INDIA ROOT · CONFIDENTIAL PRODUCT BRIEF · 2026 | 01 / 04
             </div>
         </div>
     </section>
 
     <!-- Vision Section -->
-    <section class="vision" id="vision">
+    <section class="alt-bg" id="vision">
         <div class="container">
             <div class="section-header">
-                <h2>Our Approach</h2>
-                <p>Four pillars designed for Indian families</p>
+                <span class="section-label">Product Vision</span>
+                <h2>India's Family First<br>Asset Continuity Infrastructure</h2>
             </div>
 
-            <div class="vision-grid">
-                <div class="vision-card">
-                    <h3>🗂️ Organise</h3>
-                    <p>Record every asset and document in one encrypted vault. Property, bank accounts, EPF, insurance, gold—everything in one place.</p>
+            <p style="font-size: 1.2rem; color: var(--navy); max-width: 800px;">India Root is the infrastructure that ensures <strong>no Indian family is ever left in the dark</strong>. This is not just a storage app. It is a continuity system.</p>
+
+            <p style="font-size: 1.1rem; max-width: 800px;">Every day in India, families are left scrambling after a loss. Wealth that took a lifetime to build becomes an administrative nightmare overnight.</p>
+
+            <div class="divider"></div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🇮🇳 Vision 2040 Aligned</h3>
+                    <p style="margin-bottom: 0;">By returning generational wealth back into the ecosystem rather than letting it become "unclaimed deposits," we directly support national prosperity.</p>
+                    <ul style="margin: 1.5rem 0 0 1.5rem; line-height: 2.2;">
+                        <li><strong>Economic Boost:</strong> Unlocking ₹1 Lakh Crore+ of dead capital</li>
+                        <li><strong>Family Values:</strong> Preserving the Indian ethos of legacy</li>
+                    </ul>
                 </div>
-                <div class="vision-card">
-                    <h3>💬 Communicate</h3>
-                    <p>Leave personal messages tied to each asset. Video, voice, or text—in your own words, your own voice.</p>
+                <div class="card" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 1.3rem;">🗂️ Organise</h4>
+                        <p style="margin-bottom: 0;">Record every asset and document in one vault.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.3rem;">💬 Communicate</h4>
+                        <p style="margin-bottom: 0;">Leave personal messages tied to each asset.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.3rem;">🤝 Hand Over</h4>
+                        <p style="margin-bottom: 0;">Share an India Root Package offline.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.3rem;">🔐 Encrypted</h4>
+                        <p style="margin-bottom: 0;">Zero-Knowledge architecture. We don't have a key.</p>
+                    </div>
                 </div>
-                <div class="vision-card">
-                    <h3>🤝 Hand Over</h3>
-                    <p>Share an encrypted package offline with nominees. No cloud needed. Complete control, complete privacy.</p>
-                </div>
-                <div class="vision-card">
-                    <h3>🔐 Secure</h3>
-                    <p>Zero-knowledge, end-to-end encrypted. Your data lives on your device. We don't have a key.</p>
-                </div>
+            </div>
+
+            <div style="text-align: center; color: var(--gray-text); font-size: 0.85rem; margin-top: 3rem;">
+                INDIA ROOT · CONFIDENTIAL PRODUCT BRIEF · 2026 | 02 / 04
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section id="features">
         <div class="container">
             <div class="section-header">
-                <h2>Complete Product — Built & Deployed</h2>
-                <p>45+ screens, 12 feature modules, production-ready on Android</p>
+                <span class="section-label">MLP Release · March 2026</span>
+                <h2>What We've Built</h2>
+                <p style="color: var(--navy); font-size: 1.1rem;">A complete product — from first login to heir handover — working end-to-end on Android.</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🔐</span>
-                    <h3>Authentication & Security</h3>
-                    <p>Google OAuth, OTP verification, PIN-based encryption with Argon2, biometric unlock, and auto-lock timers.</p>
-                    <div class="feature-list">
+            <div class="grid-3">
+                <div class="card">
+                    <h4>🔐 Authentication & Security</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Full sign-up with Google, OTP verification, PIN-based vault encryption, biometric unlock, and auto-lock timer.</p>
+                    <div>
+                        <span class="badge">Google OAuth</span>
+                        <span class="badge">OTP</span>
                         <span class="badge">Done</span>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <span class="feature-icon">🏠</span>
-                    <h3>Asset Vault</h3>
-                    <p>Organize family financial assets with detailed forms for property, bank accounts, EPF, gold, investments, insurance, and vehicles.</p>
-                    <div class="feature-list">
+                <div class="card">
+                    <h4>🏠 Asset Vault</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Record and organise family financial assets. Property fully detailed, all other categories with structured forms.</p>
+                    <div>
+                        <span class="badge">Property ★</span>
+                        <span class="badge">Bank Accounts</span>
                         <span class="badge">Done</span>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <span class="feature-icon">💬</span>
-                    <h3>Personal Messages</h3>
-                    <p>Leave audio, video, or text messages tied to each asset. Your voice, your story, encrypted and preserved.</p>
-                    <div class="feature-list">
-                        <span class="badge">Audio</span>
-                        <span class="badge">Video</span>
-                        <span class="badge">Text</span>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
-                    <h3>Family Management</h3>
-                    <p>Add nominees, assign roles, control what each family member can see and access.</p>
-                    <div class="feature-list">
+                <div class="card">
+                    <h4>💬 Personal Messages</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Leave messages for family in your own voice. Audio, video, and text all encrypted locally.</p>
+                    <div>
+                        <span class="badge">🎙️ Audio</span>
+                        <span class="badge">🎥 Video</span>
                         <span class="badge">Done</span>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <span class="feature-icon">📦</span>
-                    <h3>India Root Package</h3>
-                    <p>Share encrypted packages offline with heirs. They import with their PIN, no cloud required, complete privacy.</p>
-                    <div class="feature-list">
+                <div class="card">
+                    <h4>👨‍👩‍👧‍👦 Family Management</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Add nominees, assign roles, control exactly what each person can see and access.</p>
+                    <div>
+                        <span class="badge">Role Control</span>
                         <span class="badge">Done</span>
                     </div>
                 </div>
 
-                <div class="feature-card">
-                    <span class="feature-icon">☁️</span>
-                    <h3>Backup & Restore</h3>
-                    <p>Back up your encrypted vault to Google Drive. Restore on any new device. Your data survives your device.</p>
-                    <div class="feature-list">
+                <div class="card">
+                    <h4>📦 India Root Package</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Share encrypted packages offline. Heirs import with PIN, no cloud needed, complete privacy.</p>
+                    <div>
+                        <span class="badge">Offline</span>
                         <span class="badge">Done</span>
                     </div>
                 </div>
+
+                <div class="card">
+                    <h4>☁️ Backup & Restore</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Back up encrypted vault to Google Drive. Restore on any new device. Your data survives.</p>
+                    <div>
+                        <span class="badge">Google Drive</span>
+                        <span class="badge">Done</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>🏦 Multi-Vault Support</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Manage multiple vaults in one app. Your assets and your in-laws' separately, fully isolated.</p>
+                    <div>
+                        <span class="badge">Done</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>⚙️ Settings & Access</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Access delay, dark mode, account management. Built for a polished, production-ready experience.</p>
+                    <div>
+                        <span class="badge">Done</span>
+                    </div>
+                </div>
+
+                <div class="card accent">
+                    <h3 style="margin-top: 0;">Product Stats</h3>
+                    <ul style="line-height: 2.2; margin: 0; padding-left: 1.5rem;">
+                        <li><strong>45+</strong> Screens</li>
+                        <li><strong>12</strong> Feature modules</li>
+                        <li><strong>7</strong> Asset categories</li>
+                        <li><strong>3</strong> Message types</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; color: var(--gray-text); font-size: 0.85rem; margin-top: 3rem;">
+                INDIA ROOT · CONFIDENTIAL PRODUCT BRIEF · 2026 | 03 / 04
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison">
+    <!-- Competitive Position -->
+    <section class="alt-bg">
         <div class="container">
             <div class="section-header">
-                <h2>How We're Different</h2>
-                <p>India Root is a continuity system—built for Indian families, from the ground up</p>
+                <span class="section-label">Competitive Position</span>
+                <h2>Why India Root Is Different</h2>
+                <p style="color: var(--navy);">The market has document scanners and cloud storage. India Root is a continuity system — built for Indian families, from the ground up.</p>
             </div>
 
-            <div class="table-wrapper">
+            <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th style="color: white;">Capability</th>
-                            <th style="color: white; text-align: center;">India Root</th>
-                            <th style="color: white; text-align: center;">DigiLocker</th>
-                            <th style="color: white; text-align: center;">Google Drive</th>
-                            <th style="color: white; text-align: center;">Wealth Apps</th>
+                            <th>Capability</th>
+                            <th style="text-align: center;">India Root</th>
+                            <th style="text-align: center;">DigiLocker</th>
+                            <th style="text-align: center;">Google Drive</th>
+                            <th style="text-align: center;">Wealth Apps</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Designed for family handover</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
+                            <td><strong>Designed for family handover</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
-                            <td style="text-align: center;"><span class="cross">~</span></td>
+                            <td style="text-align: center;"><span class="tilde">~</span></td>
                         </tr>
                         <tr>
-                            <td>End-to-end encrypted (Zero knowledge)</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="cross">✗</span></td>
-                            <td style="text-align: center;"><span class="cross">✗</span></td>
-                            <td style="text-align: center;"><span class="cross">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td>Personal voice/video messages</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
+                            <td><strong>End-to-end encrypted (Zero knowledge)</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Offline heir package sharing</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
+                            <td><strong>Personal voice / video messages</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Multi-family vault management</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
+                            <td><strong>Offline heir package sharing</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Works offline</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
+                            <td><strong>Nominee-specific access view</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                            <td style="text-align: center;"><span class="tilde">~</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multi-family vault management</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
                             <td style="text-align: center;"><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Works without internet (offline-first)</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Structured asset + document storage</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                            <td style="text-align: center;"><span class="tilde">~</span></td>
+                            <td style="text-align: center;"><span class="tilde">~</span></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Encrypted cloud backup + restore</strong></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                            <td style="text-align: center;"><span class="cross">✗</span></td>
+                            <td style="text-align: center;"><span class="check">✓</span></td>
+                            <td style="text-align: center;"><span class="tilde">~</span></td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 2rem;">Our Defensible Moat</h3>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h4>🔑 Architecture-Level Privacy</h4>
+                    <p>Zero-knowledge isn't a toggle — it's the foundation. We cannot read your data. That's a technical impossibility, not a promise that can be reversed.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🌿 Built for India's Family Structure</h4>
+                    <p>Multi-generational households, joint property, in-laws, NRI families — designed around how Indian families actually work, not Western defaults.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🎙️ Emotional, Not Just Functional</h4>
+                    <p>Leave a video message tied to your property deed. India Root turns wealth records into human stories — ones your family carries for generations.</p>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p>"We don't just store what you own — we carry your voice forward."</p>
+            </div>
+
+            <div style="text-align: center; color: var(--gray-text); font-size: 0.85rem; margin-top: 3rem;">
+                INDIA ROOT · INDIA'S FAMILY FIRST ASSET CONTINUITY INFRASTRUCTURE
             </div>
         </div>
     </section>
 
     <!-- Impact Section -->
-    <section class="impact" id="impact">
-        <div class="container">
-            <div class="impact-content">
-                <div class="impact-text">
-                    <h3>Reclaiming ₹1 Lakh Crore for India</h3>
-                    <p>This unclaimed wealth isn't just lost money. It's dormant capital structurally removed from the Indian economy.</p>
-                    <p>India Root ensures this capital routes back to Indian families—directly fueling national growth and prosperity.</p>
-                    <p><em>"A stronger Indian family builds a stronger Indian economy."</em></p>
-                </div>
-                <div class="impact-numbers">
-                    <div class="impact-number">
-                        <div class="value">₹1L+ Cr</div>
-                        <div class="label">Unclaimed today</div>
-                    </div>
-                    <div class="impact-number">
-                        <div class="value">₹1.5–2L Cr</div>
-                        <div class="label">In 5 years</div>
-                    </div>
-                    <div class="impact-number">
-                        <div class="value">₹2–3L Cr+</div>
-                        <div class="label">In 10 years</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Moat Section -->
-    <section class="moat">
+    <section id="impact">
         <div class="container">
             <div class="section-header">
-                <h2>Our Defensible Moat</h2>
-                <p>Why India Root is built to last</p>
+                <span class="section-label">Nation-Building Perspective</span>
+                <h2>Aligned with India's Vision</h2>
+                <p style="color: var(--navy);">India Root is more than a consumer application. It is a critical component of Digital India designed to solve a trillion-dollar domestic crisis.</p>
             </div>
 
-            <div class="moat-grid">
-                <div class="moat-card">
-                    <h3>Architecture-Level Privacy</h3>
-                    <p>Zero-knowledge isn't a toggle—it's the foundation. We cannot read your data. That's a technical impossibility, not a promise that can be reversed by policy.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>🇮🇳 The "Ease of Succession"</h4>
+                    <p>Aligned with the Government's "Ease of Living." Currently, post-loss paperwork is a traumatic nightmare. India Root delivers relief and peace of mind by making family succession frictionless.</p>
                 </div>
-                <div class="moat-card">
-                    <h3>Built for Indian Families</h3>
-                    <p>Multi-generational households, joint property, in-laws, NRI families. Designed around how Indian families actually work, not Western defaults.</p>
+
+                <div class="card">
+                    <h4>⚖️ Alleviating Judicial Burden</h4>
+                    <p>4-5 crore pending cases in Indian courts stem from familial disputes. By enforcing clear asset mapping while vault owner is alive, India Root pre-empts thousands of litigations.</p>
                 </div>
-                <div class="moat-card">
-                    <h3>Emotional, Not Just Functional</h3>
-                    <p>Leave a video message tied to your property deed. India Root turns wealth records into human stories—ones your family will carry for generations.</p>
+
+                <div class="card">
+                    <h4>🤝 The Digilocker Synergy</h4>
+                    <p>DigiLocker secures government credentials. India Root secures private family wealth — resolving the final missing piece of a citizen's digital life.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🛡️ Data Sovereignty (Atmanirbhar)</h4>
+                    <p>Built entirely in India on Zero-Knowledge Architecture. Citizens' sensitive financial maps are never harvested or monetized. Total privacy, total sovereignty.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Secure Your Family's Future?</h2>
-            <p>India Root is now in early access. Join families across India protecting their legacy.</p>
-            <button class="cta-button" style="background: white; color: var(--primary); font-weight: 600;">Get Early Access</button>
+            <div class="highlight-box">
+                <h2>Reclaiming ₹1 Lakh Crore for the Nation</h2>
+                <p>The ₹1 Lakh Crore lying unclaimed in Indian banks, PF accounts, and insurance policies is dormant capital structurally removed from the Indian economy. India Root ensures this capital routes back to Indian families and into active domestic markets, directly fueling national growth.</p>
+                <p style="font-size: 1.2rem; margin-bottom: 0;"><strong><em>"A stronger Indian family builds a stronger Indian economy."</em></strong></p>
+            </div>
+
+            <div style="text-align: center; color: var(--gray-text); font-size: 0.85rem; margin-top: 3rem;">
+                INDIA ROOT · NATION BUILDING PROPOSAL | CONFIDENTIAL PMO BRIEF · 2026 | 05 / 05
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 India Root. Building India's family-first asset continuity infrastructure.</p>
-        <p style="margin-top: 1rem; opacity: 0.7;">Privacy-first. Offline-capable. Built for India.</p>
+        <p>© 2026 India Root</p>
+        <p style="margin-bottom: 0; font-size: 0.9rem;">Privacy-first. Offline-capable. Built for India.</p>
     </footer>
 </body>
 </html>
